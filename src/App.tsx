@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NewTodo from './components/NewTodo';
+import Todos from './components/Todos';
+import TodosContextProvider from './store/todos-context';
 
 function App() {
+  // USing Context instead
+  // const [todos, setTodos] = useState<Todo[]>([]);
+  // // const todos = [
+  // //   new Todo('Learn JavaScript'),
+  // //   new Todo('Learn TypeScript'),
+  // //   new Todo('Learn React'),
+  // // ];
+
+  // const addingTodoHandler = (text: string) => {
+  //   setTodos((prevTodos) => prevTodos.concat(new Todo(text)));
+  // };
+
+  // const removeTodoHandler = (todoId: string) => {
+  //   setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== todoId));
+  // };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TodosContextProvider>
+      <NewTodo />
+      <Todos />
+    </TodosContextProvider>
   );
 }
 
